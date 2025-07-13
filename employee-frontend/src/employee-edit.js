@@ -242,9 +242,9 @@ const UpdateEmployee = () => {
             <div className="text-center fs-5 bg-warning"> Employee Edit </div>
             <div className="row">
                 <div className="col-lg-3"></div>
-                <div className="col-lg-5">
+                <div className="col-lg-6">
                     <form onSubmit={handleUpdate}>
-                        <div className="row mt-5 border p-2 rounded bg-light">
+                        <div className="row mt-3 border p-2 rounded bg-light">
                             <caption className="text-center fs-4 mb-2 text-primary"> Employee Edit </caption>
                             <div className="col-lg-4"> Name </div>
                             <div className="col-lg-8 mb-3">
@@ -372,28 +372,29 @@ const UpdateEmployee = () => {
                                         }
                                     }}
                                 />
-                            {file && (
-                                <div className="mt-2">
-                                    <strong>Selected Image:</strong>{" "}
-                                    {typeof file === "string"
-                                        ? file.substring(file.lastIndexOf("/") + 1)
-                                        : file.name}
-
-                                    <br />
-                                    <img
-                                        src={
-                                            typeof file === "string"
-                                                ? `http://localhost:2222${file}`
-                                                : URL.createObjectURL(file)
-                                        }
-                                        alt="Preview"
-                                        width={100}
-                                        height={70}
-                                        className="mt-2"
-                                    />
-                                </div>
-                            )}
                                 {errors.file && <span className="text-danger">{errors.file}</span>}
+                                
+                                {file && (
+                                    <div className="mt-2">
+                                        <strong>Selected Image:</strong>{" "}
+                                        {typeof file === "string"
+                                            ? file.substring(file.lastIndexOf("/") + 1)
+                                            : file.name}
+
+                                        <br />
+                                        <img
+                                            src={
+                                                typeof file === "string"
+                                                    ? `http://localhost:2222${file}`
+                                                    : URL.createObjectURL(file)
+                                            }
+                                            alt="Preview"
+                                            width={100}
+                                            height={70}
+                                            className="mt-2"
+                                        />
+                                    </div>
+                                )}
                             </div>
                             <div className="text-center mt-3">
                                 <button type="submit" className="btn btn-primary"> Update </button>
@@ -401,12 +402,10 @@ const UpdateEmployee = () => {
                         </div>
                     </form>
                 </div>
-                <div className="col-lg-4"></div>
+                <div className="col-lg-3"></div>
             </div>
 
-            <br /><br /><br />
-
-            <div className="text-center fs-5 bg-warning"> Employee List </div>
+            <div className="text-center mt-4 fs-5 bg-warning"> Employee List </div>
             <div className="row text-end mt-2 mb-2">
                 <div className="col-lg-3"></div>
                 <div className="col-lg-3"></div>

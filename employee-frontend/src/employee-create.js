@@ -216,7 +216,7 @@ const EmployeeList = () => {
             <div className="text-center fs-5 bg-warning">Create Employee</div>
             <div className="row">
                 <div className="col-lg-3"></div>
-                <div className="col-lg-5">
+                <div className="col-lg-6">
                     <form onSubmit={save}>
                         <div className="row mt-3 border p-2 rounded bg-light">
                             <caption className="text-center fs-4 mb-2 text-primary">Create Employee</caption>
@@ -384,40 +384,30 @@ const EmployeeList = () => {
                                     className="form-control"
                                     onChange={(e) => pickFile(e.target.files[0])}
                                 />
+                                {file && (
+                                    <div className="mt-2">
+                                        <strong>Selected Image:</strong>{" "}
+                                        {typeof file === "string"
+                                            ? file.substring(file.lastIndexOf("/") + 1)
+                                            : file.name}
+
+                                        <br />
+                                        <img
+                                            src={
+                                                typeof file === "string"
+                                                    ? `http://localhost:2222${file}`
+                                                    : URL.createObjectURL(file)
+                                            }
+                                            alt="Preview"
+                                            width={100}
+                                            height={70}
+                                            className="mt-2"
+                                        />
+                                    </div>
+                                )}
                                 {errors.file && <span className="text-danger">{errors.file}</span>}
                             </div>
 
-                            {file && (
-                                <img
-                                    src={URL.createObjectURL(file)}
-                                    alt="Preview"
-                                    width={80}
-                                    height={80}
-                                    className="mt-2"
-                                />
-                            )}
-                            
-                            {file && (
-                                <div className="mt-2">
-                                    <strong>Selected Image:</strong>{" "}
-                                    {typeof file === "string"
-                                        ? file.substring(file.lastIndexOf("/") + 1)
-                                        : file.name}
-
-                                    <br />
-                                    <img
-                                        src={
-                                            typeof file === "string"
-                                                ? `http://localhost:2222${file}`
-                                                : URL.createObjectURL(file)
-                                        }
-                                        alt="Preview"
-                                        width={100}
-                                        height={70}
-                                        className="mt-2"
-                                    />
-                                </div>
-                            )}
 
                             <div className="text-center mt-2">
                                 <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
@@ -427,7 +417,7 @@ const EmployeeList = () => {
                         </div>
                     </form>
                 </div>
-                <div className="col-lg-4"></div>
+                <div className="col-lg-3"></div>
             </div>
         </div>
     );

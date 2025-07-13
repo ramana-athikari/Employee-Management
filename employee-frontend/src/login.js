@@ -5,7 +5,7 @@ const UserLogin = () =>{
     let [uNameError, setEmailError] = useState("");
     let [password, pickPassword] = useState("");
     let [passwordError, setPassError] = useState("");
-    let [msg, setMessage] = useState("Enter Login Details");
+    let [msg, setMessage] = useState("");
 
     const LoginCheck = (obj) =>{
         obj.preventDefault();
